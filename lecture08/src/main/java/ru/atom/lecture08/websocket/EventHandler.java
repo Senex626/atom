@@ -3,6 +3,8 @@ package ru.atom.lecture08.websocket;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.WebSocketAdapter;
 
+import ru.atom.lecture08.websocket.network.Broker;
+
 public class EventHandler extends WebSocketAdapter {
     @Override
     public void onWebSocketConnect(Session sess) {
@@ -13,6 +15,7 @@ public class EventHandler extends WebSocketAdapter {
     @Override
     public void onWebSocketText(String message) {
         super.onWebSocketText(message);
+        Broker.getInstance().receive(getSession(), message);
         System.out.println("Received TEXT message: " + message);
     }
 

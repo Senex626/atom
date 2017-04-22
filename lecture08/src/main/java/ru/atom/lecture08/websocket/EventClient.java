@@ -4,6 +4,10 @@ import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.client.WebSocketClient;
 import org.eclipse.jetty.websocket.client.masks.ZeroMasker;
 
+import ru.atom.lecture08.websocket.message.Message;
+import ru.atom.lecture08.websocket.message.Topic;
+import ru.atom.lecture08.websocket.util.JsonHelper;
+
 import java.net.URI;
 import java.util.concurrent.Future;
 
@@ -24,7 +28,8 @@ public class EventClient {
                 Session session = fut.get();
                 // Send a message
                 //TODO TASK: implement sending Message with type HELLO and your name as data
-                session.getRemote().sendString("Hello");
+                String message = JsonHelper.toJson(new Message(Topic.MOVE,"Filatov"));
+                session.getRemote().sendString(message);
                 // Close session
                 session.close();
             } finally {
