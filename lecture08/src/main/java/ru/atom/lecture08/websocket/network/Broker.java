@@ -1,3 +1,4 @@
+
 package ru.atom.lecture08.websocket.network;
 
 import org.apache.logging.log4j.LogManager;
@@ -23,15 +24,8 @@ public class Broker {
     }
 
     public void receive(@NotNull Session session, @NotNull String msg) {
+        log.info("RECEIVED: " + msg);
         Message message = JsonHelper.fromJson(msg, Message.class);
-        if (message.getTopic() == Topic.MOVE) {
-        	log.info("RECEIVED: " + message.getTopic() + " message type");
-        } else if (message.getTopic() == Topic.PLANT_BOMB) {
-        	log.info("RECEIVED: " + message.getTopic() + " message type");
-        } else {
-        	log.info("RECIEVED unknown message type");
-        }
-        
         //TODO TASK2 implement message processing
     }
 

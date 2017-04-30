@@ -1,3 +1,4 @@
+
 #HSLIDE
 # Java
 lecture 8
@@ -78,7 +79,6 @@ Refresh gradle project
 - core and Entity - an approach to be OOP
 - GameEngine - basic mechanics and render
 - Input engine - input handling 
-
 
 #HSLIDE
 ## Agenda

@@ -1,3 +1,4 @@
+
 package ru.atom.lecture08.websocket.message;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -19,11 +20,11 @@ public class Message {
         this.data = data.toString();
     }
 
-    public Topic getTopic() {
+    Topic getTopic() {
         return topic;
     }
 
-    public String getData() {
+    String getData() {
         return data;
     }
 }

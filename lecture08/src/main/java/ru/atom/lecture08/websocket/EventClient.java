@@ -1,19 +1,16 @@
+
 package ru.atom.lecture08.websocket;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.client.WebSocketClient;
 import org.eclipse.jetty.websocket.client.masks.ZeroMasker;
 
-import ru.atom.lecture08.websocket.message.Message;
-import ru.atom.lecture08.websocket.message.Topic;
-import ru.atom.lecture08.websocket.util.JsonHelper;
-
 import java.net.URI;
 import java.util.concurrent.Future;
 
 public class EventClient {
     public static void main(String[] args) {
-        URI uri = URI.create("ws://localhost:8090/events/");//CHANGE TO wtfis.ru for task
+        URI uri = URI.create("ws://localhost:8090/events/");
 
         WebSocketClient client = new WebSocketClient();
         //client.setMasker(new ZeroMasker());
@@ -27,9 +24,7 @@ public class EventClient {
                 // Wait for Connect
                 Session session = fut.get();
                 // Send a message
-                //TODO TASK: implement sending Message with type HELLO and your name as data
-                String message = JsonHelper.toJson(new Message(Topic.MOVE,"Filatov"));
-                session.getRemote().sendString(message);
+                session.getRemote().sendString("Hello");
                 // Close session
                 session.close();
             } finally {
