@@ -91,7 +91,7 @@ GameEngine = Class.extend({
         this.drawTiles();
         this.drawBonuses();
 
-        // this.spawnPlayers();
+        //this.spawnPlayers();
 
         // Toggle sound
         gInputEngine.subscribe('mute', this.toggleSound);
