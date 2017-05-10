@@ -10,10 +10,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Path("billing")
 public class BillingResource {
-    private static Map<String, Integer> userToMoney = new HashMap<>();
+    private static ConcurrentHashMap<String, Integer> userToMoney = new ConcurrentHashMap<>();
 
     @POST
     @Consumes("application/x-www-form-urlencoded")
