@@ -6,8 +6,13 @@ public class Pawn extends PositionableObject implements Movable {
 
     private Direction direction;
 
-    public Pawn() {
-        this.setPosition(new Point(5, 5));
+    public Pawn(int x, int y) {
+        this.setPosition(new Point(x, y));
+    }
+    
+    public Pawn(int x, int y, int id) {
+    	this.setPosition(new Point(x, y));
+    	this.setId(id);
     }
 
     public Pawn(Point pos) {
@@ -41,6 +46,12 @@ public class Pawn extends PositionableObject implements Movable {
         }
 
         return this.getPosition();
+    }
+    
+    public String toJSON() {
+    	Point pos = getPosition();
+    	String obj = "{\"type\":\"" + this.getClass().getSimpleName() + "\",\"id\":" + this.getId() + ",\"position\":{\"x\":" + pos.getX() + ",\"y\":" + pos.getY() + "}}";
+    	return obj;
     }
 
 }
