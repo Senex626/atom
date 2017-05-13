@@ -12,7 +12,8 @@ dependencies {
     compile rootProject.libraries.websocketserver
     compile rootProject.libraries.websocketapi
     compile rootProject.libraries.jersey_server
-    compile rootProject.libraries.jersey_containers    
+    compile rootProject.libraries.jersey_containers
+    compile 'com.google.code.gson:gson:2.6.1'
 }
 
 

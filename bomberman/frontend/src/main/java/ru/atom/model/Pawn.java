@@ -4,7 +4,7 @@ import ru.atom.geometry.Point;
 
 public class Pawn extends PositionableObject implements Movable {
 
-    Direction direction;
+    private Direction direction;
 
     public Pawn() {
         this.setPosition(new Point(5, 5));
@@ -17,7 +17,11 @@ public class Pawn extends PositionableObject implements Movable {
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
-
+    
+    public Direction getDirection() {
+        return direction;
+    }
+    
     @Override
     public void tick(long elapsed) {
         move(direction);
